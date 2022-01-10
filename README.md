@@ -14,5 +14,12 @@ There are multiple ways to download the raw videos of Kinetics-400 and Kinetics-
 
 ## Resize the videos
 
+use moviepy package 
+
+To be continued
+
+```
+pip install moviepy
+```
 
 ## Prepare the csv annotation files
