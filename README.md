@@ -40,8 +40,8 @@ path_to_video_3 label_3
 path_to_video_N label_N
 ```
 
-The original annotations can be found at the [kinetics website](https://deepmind.com/research/open-source/kinetics), or you can directly use download links of [kinetics-400 annotations](https://storage.googleapis.com/deepmind-media/Datasets/kinetics400.tar.gz) and [kinetics-600 annotations](https://storage.googleapis.com/deepmind-media/Datasets/kinetics600.tar.gz). The official annotations support two different types of files: csv and json. However, both of them don't meet the above format. Therefore, I also provide a python code to transfer json files to the corresponding csv files with correct format. It takes three inputs: the container path of all videos, the official json annotation file, the output csv annotation path. The following command is my example.
+The original annotations can be found at the [kinetics website](https://deepmind.com/research/open-source/kinetics), or you can directly use download links of [kinetics-400 annotations](https://storage.googleapis.com/deepmind-media/Datasets/kinetics400.tar.gz) and [kinetics-600 annotations](https://storage.googleapis.com/deepmind-media/Datasets/kinetics600.tar.gz). The official annotations support two different types of files: csv and json. However, both of them don't meet the above format. Therefore, I also provide a python code to transfer json files to the corresponding csv files with correct format. It takes two inputs: the container path of all videos, the path of official json annotation files. The output annotations will be named as 'output_XXX.csv' and located at the same folder. The following command is my example.
 
 ```
-python kinetics_annotation.py --data_path /home/kaihua/datasets/kinetics-val/ --anno_path /home/kaihua/datasets/kinetics400-anno/validate.json --output_path /home/kaihua/datasets/kinetics400-anno/post_val.csv
+python kinetics_annotation.py --data_path /home/kaihua/datasets/kinetics-val/ --anno_path /home/kaihua/datasets/kinetics400-anno/
 ```

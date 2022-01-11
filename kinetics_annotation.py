@@ -4,20 +4,26 @@ import csv
 import os
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--data_path', default=None, type=str)
+parser.add_argument('--train_path', default=None, type=str)
+parser.add_argument('--test_path', default=None, type=str)
+parser.add_argument('--val_path', default=None, type=str)
 parser.add_argument('--anno_path', default=None, type=str)
 args = parser.parse_args()
 
-data_path = args.data_path
+train_path = args.train_path
+test_path = args.test_path
+val_path = args.val_path
 anno_path = args.anno_path
 
 #data_path = '/home/kaihua/datasets/kinetics-val/'
 #anno_path = '/home/kaihua/datasets/kinetics400-anno/'
 
 annotation_list = ['train', 'test', 'validate']
+data_paths = {'train': train_path,
+            'test': test_path,
+            'validate': val_path}
 
-
-def get_transferred_anno(org_anno_path, tgt_output_path, label2id):
+def get_transferred_anno(org_anno_path, tgt_output_path, data_path, label2id):
     print('Transfer original annotation of {} to the required format.'.format(org_anno_path))
     orig_anno = json.load(open(org_anno_path))
 
@@ -44,7 +50,7 @@ def get_transferred_anno(org_anno_path, tgt_output_path, label2id):
     with open(tgt_output_path, 'w') as f:
         writer = csv.writer(f)
         for key, val in path_label_dict.items():
-            writer.writerow([key, val])
+            writer.writerow([key, str(val)])
 
     return path_label_dict
 
@@ -59,10 +65,11 @@ with open(os.path.join(anno_path, 'label2id.json'), 'w') as outfile:
 
 
 for item in annotation_list:
-    org_anno_path = os.path.join(anno_path, item+'.json')
-    tgt_output_path = os.path.join(anno_path, 'output_'+item+'.csv')
-    
+    org_anno_path = os.path.join(anno_path, item + '.json')
+    tgt_output_path = os.path.join(anno_path, 'output_' + item + '.csv')
+    data_path = data_paths[item]
+
     # get transferred annotation file
-    get_transferred_anno(org_anno_path, tgt_output_path, label2id)
+    get_transferred_anno(org_anno_path, tgt_output_path, data_path, label2id)
 
 print('Complete!')

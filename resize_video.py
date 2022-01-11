@@ -40,7 +40,7 @@ def resize_videos(threadName, video_list):
             clip_resized.write_videofile(item, logger=None)
             print("%s-%s: %s" % (threadName, time.ctime(time.time()), item + ' is resized to ' + str(clip_resized.size)))
         except:
-            print('Fail to process: ' + item)
+            print("%s-%s: %s" % (threadName, time.ctime(time.time()), 'Fail to process: ' + item))
 
 
 # iteratively search all mp4 videos within the current folder or sub-folders
