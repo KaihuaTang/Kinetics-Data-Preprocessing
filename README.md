@@ -5,7 +5,7 @@ Kinetics-400 and Kinetics-600 are common video recognition datasets used by popu
 
 ## Download the raw videos
 
-There are multiple ways to download the raw videos of Kinetics-400 and Kinetics-600. Here, I mainly list two common choices that I tested to be simple and effective: 
+There are multiple ways to download the raw videos of Kinetics-400 and Kinetics-600. Here, I list two common choices that I found to be simple and fast: 
 
 1. Download the videos via the official [scripts](https://github.com/activitynet/ActivityNet/tree/master/Crawler/Kinetics). However, I noticed that this option is very slow, so I personally recommend the next choice.
 
