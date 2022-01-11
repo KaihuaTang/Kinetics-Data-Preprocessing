@@ -29,3 +29,15 @@ python resize_video.py --size 256 --path YOUR_VIDEO_CONTAINER
 **IMPORTANT! Note that the *resize_video.py* will replace the original mp4 files. If you want to keep the original files, please make copys before resizing.**
 
 ## Prepare the csv annotation files
+
+Following [SlowFast](https://github.com/facebookresearch/SlowFast), we also need to prepare the csv annotation files for training, validation, and testing set as `train.csv`, `val.csv`, `test.csv`. The format of the csv file is:
+
+```
+path_to_video_1 label_1
+path_to_video_2 label_2
+path_to_video_3 label_3
+...
+path_to_video_N label_N
+```
+
+The original annotations can be found at the [kinetics website](https://deepmind.com/research/open-source/kinetics), or you can directly use download links for [kinetics-400 annotations](https://storage.googleapis.com/deepmind-media/Datasets/kinetics400.tar.gz) and [kinetics-600 annotations](https://storage.googleapis.com/deepmind-media/Datasets/kinetics600.tar.gz). The official annotations support two different types of files: csv and json. However, both of them don't meet the above format. Therefore, I also provide a python code to transfer json files to the corresponding csv files with correct format.
