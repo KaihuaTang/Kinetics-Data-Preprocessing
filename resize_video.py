@@ -5,7 +5,6 @@ import os
 import argparse
 import time
 
-
 parser = argparse.ArgumentParser()
 parser.add_argument('--size', default=256, type=int)
 parser.add_argument('--path', default=None, type=str)
@@ -17,7 +16,6 @@ MAIN_PATH = args.path
 print('Resize all mp4 videos in {} to the short edge size of {}'.format(MAIN_PATH, TARGET_SIZE))
 time.sleep(3)
 
-
 class myThread (threading.Thread):
     def __init__(self, threadID, name, video_list):
         threading.Thread.__init__(self)
@@ -25,9 +23,10 @@ class myThread (threading.Thread):
         self.name = name
         self.video_list = video_list
     def run(self):
-        print("Start Thread：" + self.name)
+        print("Start Thread: " + self.name)
         resize_videos(self.name, self.video_list)
-        print("Exit Thread：" + self.name)
+        print("Exit Thread: " + self.name)
+
 
 def resize_videos(threadName, video_list):
     for item in video_list:
