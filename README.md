@@ -14,9 +14,7 @@ There are multiple ways to download the raw videos of Kinetics-400 and Kinetics-
 
 ## Resize the videos
 
-use moviepy package 
-
-To be continued
+The common data preprocessing of Kinetics requires all videos to be resized to the short edge size of 256. Therefore, I use the [moviepy package](https://zulko.github.io/moviepy/) to do so. The 
 
 ```
 pip install moviepy
