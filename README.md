@@ -20,12 +20,12 @@ The common data preprocessing of Kinetics requires all videos to be resized to t
 pip install moviepy
 ```
 
-Then, you can use the resize_video.py to resize all the videos within the given folder by following command:
+Then, you can use the [resize_video.py](https://github.com/KaihuaTang/Kinetics-Data-Preprocessing/blob/main/resize_video.py) to resize all the videos within the given folder by following command:
 
 ```
 python resize_video.py --size 256 --path YOUR_VIDEO_CONTAINER
 ```
 
-IMPORTANT! Note that the resize_video.py will replace the original mp4 files. If you want to keep the original files, please make copys before resizing videos.
+**IMPORTANT! Note that the *resize_video.py* will replace the original mp4 files. If you want to keep the original files, please make copys before resizing.**
 
 ## Prepare the csv annotation files
