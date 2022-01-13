@@ -26,7 +26,13 @@ Then, you can use the [resize_video.py](https://github.com/KaihuaTang/Kinetics-D
 python resize_video.py --size 256 --path YOUR_VIDEO_CONTAINER
 ```
 
-**IMPORTANT! Note that the *resize_video.py* will replace the original mp4 files. If you want to keep the original files, please make copys before resizing.**
+The corresponding multi-thread version is:
+
+```
+python resize_video_multithread.py --size 256 --path YOUR_VIDEO_CONTAINER
+```
+
+**IMPORTANT! Note that the above *resize_video.py* and *resize_video_multithread.py* will replace the original mp4 files. If you want to keep the original files, please make copys before resizing.**
 
 ## Prepare the csv annotation files
 
