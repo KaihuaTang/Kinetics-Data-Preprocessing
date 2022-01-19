@@ -41,15 +41,13 @@ def resize_videos(threadName, video_list):
                 clip_resized = clip.resize(height=TARGET_SIZE)
             else:
                 clip_resized = clip.resize(width=TARGET_SIZE)
-        except:
-            print("%s-%s: %s" % (threadName, time.ctime(time.time()), 'Fail to process: ' + item))
 
-
-        try:
             clip_resized.write_videofile(item, logger=None)
+            clip_resized.close()
+            clip.close()
             print("%s-%s: %s" % (threadName, time.ctime(time.time()), item + ' is resized to ' + str(clip_resized.size)))
-        except:
-            print("%s-%s: %s" % (threadName, time.ctime(time.time()), 'Fail to re-write: ' + item))
+        except Exception as e:
+            print("%s-%s: %s Due to %s" % (threadName, time.ctime(time.time()), 'Fail to process: ' + item, e))
 
 
 # iteratively search all mp4 videos within the current folder or sub-folders
